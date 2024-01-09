@@ -35,3 +35,10 @@ SELECT clients.first_name, clients.last_name, GROUP_CONCAT(sites.domain_name) AS
 FROM clients
 JOIN sites ON clients.id = sites.clients_id
 GROUP BY clients.id;
+
+6-COUNT:
+Find the total number of leads for each site
+SELECT COUNT(leads.id) AS leads_count, sites.domain_name
+FROM sites
+JOIN leads ON sites.id = leads.sites_id
+GROUP BY sites.id;
