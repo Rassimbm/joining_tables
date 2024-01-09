@@ -7,3 +7,9 @@ List all domain names and leads (first and last name) for each site
 SELECT leads.first_name, leads.last_name, sites.domain_name
 FROM sites
 JOIN leads ON sites.id = leads.sites_id;
+
+Get the names of the clients, their domain names and the first name of all leads generated from those sites
+SELECT clients.first_name AS clients_f_name, clients.last_name, sites.domain_name, leads.first_name AS leads_f_name
+FROM  clients
+JOIN sites ON clients.id = sites.clients_id
+JOIN leads ON sites.id = leads.sites_id;
