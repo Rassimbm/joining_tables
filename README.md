@@ -13,3 +13,8 @@ SELECT clients.first_name AS clients_f_name, clients.last_name, sites.domain_nam
 FROM  clients
 JOIN sites ON clients.id = sites.clients_id
 JOIN leads ON sites.id = leads.sites_id;
+
+List all the clients and the sites each client has, even if the client hasn't landed a site yet
+SELECT clients.first_name, clients.last_name, sites.domain_name
+FROM clients
+LEFT JOIN sites ON clients.id = sites.clients_id;
