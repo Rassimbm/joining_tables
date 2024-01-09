@@ -28,3 +28,10 @@ SELECT clients.first_name, clients.last_name, SUM(billing.amount)
 FROM clients
 JOIN billing ON clients.id = billing.clients_id
 GROUP BY clients.id;
+
+5-GROUP_CONCAT:
+List all the domain names associated with each client
+SELECT clients.first_name, clients.last_name, GROUP_CONCAT(sites.domain_name) AS domain_names
+FROM clients
+JOIN sites ON clients.id = sites.clients_id
+GROUP BY clients.id;
